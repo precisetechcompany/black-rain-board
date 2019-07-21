@@ -2,11 +2,12 @@ import * as express from 'express'
 import * as bodyParser from "body-parser";
 import * as mongoose from "mongoose";
 import { Config } from './config/config';
+require("./models/Board");
 import { BaseRouter } from "./routes/base";
 import { BoardRouter } from "./routes/board";
-import BoardService = require("../src/services/BoardService");
-import BoardServiceImpl = require("../src/services/impl/BoardServiceImpl");
-import { BoardController } from "../src/controllers/BoardController";
+import BoardService = require("./services/BoardService");
+import BoardServiceImpl = require("./services/impl/BoardServiceImpl");
+import { BoardController } from "./controllers/BoardController";
 
 class App {
   public express;
