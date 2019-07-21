@@ -1,0 +1,34 @@
+{
+  "name": "black-rain-board",
+  "version": "0.0.1",
+  "description": "scrum board project",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "lint": "eslint src --ext ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "start:local": "export \"NODE_ENV=local\" && node dist/index.js",
+    "test:coverage": "npm run build && export \"NODE_ENV=test\" && istanbul cover node_modules/mocha/bin/_mocha --  dist/test --recursive --timeout 120000",
+    "test": "npm run clean:build && export \"NODE_ENV=test\" && npm run mocha:local --timeout 120000",
+    "mocha:local": "mocha dist/test --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/precisetechcompany/black-rain-board.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/precisetechcompany/black-rain-board/issues"
+  },
+  "homepage": "https://github.com/precisetechcompany/black-rain-board#readme",
+  "dependencies": {
+    "@types/node": "^12.6.8",
+    "body-parser": "^1.19.0",
+    "eslint": "^6.1.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "mongoose": "^5.6.5"
+  }
+}

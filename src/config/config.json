@@ -1,0 +1,15 @@
+{
+	"DEV": {
+		"dbUrl":"mongodb://localhost:27017/ScrumBoardDB",
+		"logPath": "/logs/",
+		"appLogPath": "",
+		"envName": "DEV"
+	},
+	"LOCAL": {
+		"dbUrl":"mongodb://localhost:27017/ScrumBoardDB",
+		"logPath": "/logs/",
+		"appLogPath": "",
+		"envName": "LOCAL"
+	}
+
+}
