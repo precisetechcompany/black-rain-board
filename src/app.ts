@@ -17,7 +17,9 @@ class App {
   boardRouter: BoardRouter = new BoardRouter(this.boardController);
 
   constructor () {
+    this.mongoSetup();
     this.express = express();
+    this.config();
     this.baseRouter = new BaseRouter();
     this.baseRouter.BaseRouter(express);
     this.boardRouter.BoardRouter(express);
@@ -31,9 +33,9 @@ class App {
 
   private config(): void {
     // support application/json type post data
-    express.use(bodyParser.json());
+    this.express.use(bodyParser.json());
     //support application/x-www-form-urlencoded post data
-    express.use(bodyParser.urlencoded({ extended: false }));
+    this.express.use(bodyParser.urlencoded({ extended: false }));
   }
   private mongoSetup(): void {
     let connection: mongoose.Connection;

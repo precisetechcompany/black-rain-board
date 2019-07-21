@@ -24,7 +24,7 @@ var BoardSchema = new Schema({
       type: String,
       enum: ['scrum', 'kanban']
     }],
-    default: ['open']
+    default: ['scrum']
   }
 });
 
