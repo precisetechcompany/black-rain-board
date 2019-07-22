@@ -1,9 +1,11 @@
 # black-rain-board
 scrum board project
 
-Pre-requisites:
+# Pre-requisites:
 1. MongoDB running on port 27010
 2. Typescript 
+
+# Setup Project:
 
 1. Clone the repo:
 git clone https://github.com/precisetechcompany/black-rain-board.git
