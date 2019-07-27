@@ -10,7 +10,7 @@ import BoardServiceImpl = require("./services/impl/BoardServiceImpl");
 import { BoardController } from "./controllers/BoardController";
 
 class App {
-  public express;
+  public express:any = express.application;
   public baseRouter;
   boardService: BoardService.BoardService = new BoardServiceImpl.BoardServiceImpl();
   boardController : BoardController = new BoardController(this.boardService);
@@ -21,8 +21,8 @@ class App {
     this.express = express();
     this.config();
     this.baseRouter = new BaseRouter();
-    this.baseRouter.BaseRouter(express);
-    this.boardRouter.BoardRouter(express);
+    this.baseRouter.BaseRouter(this.express);
+    this.boardRouter.BoardRouter(this.express);
     this.mountRoutes()
   }
 
