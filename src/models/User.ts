@@ -13,8 +13,7 @@ var UserSchema = new Schema({
       type: String,
       required: 'Enter the email address'
     }], 
-  },
-
+  }
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -28,6 +28,19 @@ import { TaskController } from "./controllers/TaskController";
 import { UserController } from "./controllers/UserController";
 import { TeamController } from "./controllers/TeamController";
 import { MemberController } from "./controllers/MemberController";
+import { BaseRouter } from "./routes/base";
+import { BoardRouter } from "./routes/board";
+import { TaskRouter } from "./routes/Task";
+import { UserRouter } from "./routes/User";
+import BoardService = require("./services/BoardService");
+import TaskService = require("./services/TaskService");
+import UserService = require("./services/UserService");
+import BoardServiceImpl = require("./services/impl/BoardServiceImpl");
+import TaskServiceImpl = require("./services/impl/TaskServiceImpl");
+import UserServiceImpl = require("./services/impl/UserServiceImpl");
+import { BoardController } from "./controllers/BoardController";
+import { TaskController } from "./controllers/TaskController";
+import { UserController } from "./controllers/UserController";
 
 class App {
   public express:any = express.application;
@@ -48,6 +61,12 @@ class App {
   teamRouter: TeamRouter = new TeamRouter(this.teamController);
   memberRouter: MemberRouter = new MemberRouter(this.memberController);
 
+  boardController : BoardController = new BoardController(this.boardService);
+  taskController : TaskController = new TaskController(this.taskService);
+  userController : UserController = new UserController(this.userService);
+  boardRouter: BoardRouter = new BoardRouter(this.boardController);
+  taskRouter: TaskRouter = new TaskRouter(this.taskController);
+  userRouter: UserRouter = new UserRouter(this.userController);
 
   constructor () {
     this.mongoSetup();
@@ -76,7 +95,7 @@ class App {
     // support application/json type post data
     this.express.use(bodyParser.json());
     //support application/x-www-form-urlencoded post data
-    this.express.use(bodyParser.urlencoded({ extended: false }));
+    // this.express.use(bodyParser.urlencoded({ extended: false }));
   }
   private mongoSetup(): void {
     let connection: mongoose.Connection;

@@ -14,7 +14,6 @@ export class UserServiceImpl implements UserService {
             resolve({ message: 'User Created!', data: userCreated })
         }
       });
-
     })
   }
 
