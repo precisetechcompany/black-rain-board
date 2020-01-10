@@ -1,6 +1,10 @@
 import { TaskService } from "../TaskService";
 import * as mongoose from 'mongoose';
 var Task = mongoose.model('Task');
+import { getLogger } from 'log4js';
+const logger = getLogger("TaskServiceImpl");
+logger.level = 'info';
+
 
 
 export class TaskServiceImpl implements TaskService {
@@ -12,6 +16,7 @@ export class TaskServiceImpl implements TaskService {
             reject(err);
         } else {
             resolve({ message: 'Task Created!', data: taskCreated })
+            logger.info("Task Created!!");
         }
       });
 
@@ -26,6 +31,7 @@ export class TaskServiceImpl implements TaskService {
             reject(err);
         } else {
             resolve({ message: 'Task fetched!', data: task })
+            logger.info("Task fetched!!");
         }
       });
 
@@ -40,6 +46,7 @@ export class TaskServiceImpl implements TaskService {
             reject(err);
         } else {
             resolve({ message: 'Task fetched!', data: task })
+            logger.info("Task fetched!!");
         }
       });
 
@@ -54,6 +61,7 @@ export class TaskServiceImpl implements TaskService {
             reject(err);
         } else {
             resolve({ message: 'Task updated!', data: taskUpdated })
+            logger.info("Task updated!!");
         }
       });
 
@@ -70,6 +78,7 @@ export class TaskServiceImpl implements TaskService {
             reject(err);
         } else {
             resolve({ message: 'Task deleted!' })
+            logger.info("task deleted!!");
         }
       });
 

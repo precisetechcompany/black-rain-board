@@ -26,6 +26,7 @@ var BoardSchema = new Schema({
     }],
     default: ['scrum']
   }
+  
 });
 
 module.exports = mongoose.model('Boards', BoardSchema);

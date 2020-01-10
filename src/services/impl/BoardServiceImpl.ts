@@ -1,6 +1,10 @@
 import { BoardService } from "../BoardService";
 import * as mongoose from 'mongoose';
 var Board = mongoose.model('Boards');
+import { getLogger } from 'log4js';
+const logger = getLogger("BoardServiceImpl");
+logger.level = 'info';
+
 
 
 export class BoardServiceImpl implements BoardService {
@@ -12,6 +16,7 @@ export class BoardServiceImpl implements BoardService {
             reject(err);
         } else {
             resolve({ message: 'Board Created!', data: boardCreated })
+            logger.info("Board Created!!");
         }
       });
 
@@ -26,6 +31,7 @@ export class BoardServiceImpl implements BoardService {
             reject(err);
         } else {
             resolve({ message: 'Boards fetched!', data: boards })
+            logger.info("Board fetched!!");
         }
       });
 
@@ -40,6 +46,7 @@ export class BoardServiceImpl implements BoardService {
             reject(err);
         } else {
             resolve({ message: 'Board fetched!', data: board })
+            logger.info("Board fetched!!");
         }
       });
 
@@ -54,6 +61,7 @@ export class BoardServiceImpl implements BoardService {
             reject(err);
         } else {
             resolve({ message: 'Board updated!', data: boardUpdated })
+            logger.info("Board updated!!");
         }
       });
 
@@ -70,6 +78,7 @@ export class BoardServiceImpl implements BoardService {
             reject(err);
         } else {
             resolve({ message: 'Board deleted!' })
+            logger.info("Board deleted!!");
         }
       });
 
