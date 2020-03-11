@@ -5,6 +5,7 @@ ENV PORT 3001
 EXPOSE 3001
 
 COPY package.json package.json
+RUN npm install -g typescript
 RUN npm install
 
 COPY . .

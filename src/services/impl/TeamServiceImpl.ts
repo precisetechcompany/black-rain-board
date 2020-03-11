@@ -1,6 +1,9 @@
 import { TeamService } from "../TeamService";
 import * as mongoose from 'mongoose';
 var Team = mongoose.model('Team');
+import { getLogger } from 'log4js';
+const logger = getLogger("TeamServiceImpl");
+logger.level = 'info';
 
 
 export class TeamServiceImpl implements TeamService {
@@ -12,6 +15,7 @@ export class TeamServiceImpl implements TeamService {
             reject(err);
         } else {
             resolve({ message: 'Team Created!', data: teamCreated })
+            logger.info("Team Created!!");
         }
       });
 
@@ -26,6 +30,7 @@ export class TeamServiceImpl implements TeamService {
             reject(err);
         } else {
             resolve({ message: 'Team fetched!', data: team })
+            logger.info("Team fetched!!");
         }
       });
     })
@@ -39,6 +44,7 @@ export class TeamServiceImpl implements TeamService {
             reject(err);
         } else {
             resolve({ message: 'Team fetched!', data: team })
+            logger.info("Team fetched!!");
         }
       });
 
@@ -53,6 +59,7 @@ export class TeamServiceImpl implements TeamService {
             reject(err);
         } else {
             resolve({ message: 'Team updated!', data: teamUpdated })
+            logger.info("Team updated!!");
         }
       });
 
@@ -69,6 +76,7 @@ export class TeamServiceImpl implements TeamService {
             reject(err);
         } else {
             resolve({ message: 'Team deleted!' })
+            logger.info("Team deleted!!");
         }
       });
 

@@ -1,6 +1,9 @@
 import { UserService } from "../UserService";
 import * as mongoose from 'mongoose';
 var User = mongoose.model('User');
+import { getLogger } from 'log4js';
+const logger = getLogger("UserServiceImpl");
+logger.level = 'info';
 
 
 export class UserServiceImpl implements UserService {
@@ -12,6 +15,7 @@ export class UserServiceImpl implements UserService {
             reject(err);
         } else {
             resolve({ message: 'User Created!', data: userCreated })
+            logger.info("User Created!!");
         }
       });
     })
@@ -25,6 +29,7 @@ export class UserServiceImpl implements UserService {
             reject(err);
         } else {
             resolve({ message: 'User fetched!', data: user })
+            logger.info("User fetched!!");
         }
       });
 
@@ -39,6 +44,7 @@ export class UserServiceImpl implements UserService {
             reject(err);
         } else {
             resolve({ message: 'User fetched!', data: user })
+            logger.info("User fetched!!");
         }
       });
 
@@ -53,6 +59,7 @@ export class UserServiceImpl implements UserService {
             reject(err);
         } else {
             resolve({ message: 'User updated!', data: userUpdated })
+            logger.info("User updated!!");
         }
       });
 
@@ -69,6 +76,7 @@ export class UserServiceImpl implements UserService {
             reject(err);
         } else {
             resolve({ message: 'User deleted!' })
+            logger.info("User deleted!!");
         }
       });
 

@@ -1,6 +1,10 @@
 import { MemberService } from "../MemberService";
 import * as mongoose from 'mongoose';
 var Member = mongoose.model('Member');
+import { getLogger } from 'log4js';
+const logger = getLogger("MemberServiceImpl");
+logger.level = 'info';
+
 
 
 export class MemberServiceImpl implements MemberService {
@@ -15,6 +19,8 @@ export class MemberServiceImpl implements MemberService {
             reject(err);
         } else {
             resolve({ message: 'Member Created!', data: memberCreated })
+            logger.info("Member Created!!");
+
         }
       });
 
@@ -33,6 +39,7 @@ export class MemberServiceImpl implements MemberService {
             reject(err);
         } else {
             resolve({ message: 'Member fetched!', data: member })
+            logger.info("Member fetched!!");
         }
       });
 
@@ -47,6 +54,7 @@ export class MemberServiceImpl implements MemberService {
             reject(err);
         } else {
             resolve({ message: 'Member fetched!', data: member })
+            logger.info("Memeber fetched!!");
         }
       });
 
@@ -61,6 +69,7 @@ export class MemberServiceImpl implements MemberService {
             reject(err);
         } else {
             resolve({ message: 'Member updated!', data: memberUpdated })
+            logger.info("Member updated!!");
         }
       });
 
@@ -77,6 +86,7 @@ export class MemberServiceImpl implements MemberService {
             reject(err);
         } else {
             resolve({ message: 'Member deleted!' })
+            logger.info("Member deleted!!");
         }
       });
 
